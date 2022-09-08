@@ -2,7 +2,7 @@ import React from 'react'
 import { Navbar } from 'flowbite-react'
 import { Button } from 'flowbite-react'
 import logo from "../../assets/logo-redondo.png"
-import { ShoppingCartIcon } from '@heroicons/react/24/outline'
+import CartWidget from '../cartwidget/CartWidget'
 
 const Nav = () => {
   return (
@@ -21,9 +21,9 @@ const Nav = () => {
     </span>
   </Navbar.Brand>
   <div className="flex md:order-2">
-    <Button>
-      <ShoppingCartIcon className='h-6 w-6'/>
-    </Button>
+    
+    <CartWidget/>
+    
     <Navbar.Toggle />
   </div>
   <Navbar.Collapse>
