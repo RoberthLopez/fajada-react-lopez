@@ -1,8 +1,7 @@
 import React from 'react'
 import { Navbar } from 'flowbite-react'
-import { Button } from 'flowbite-react'
 import logo from "../../assets/logo-redondo.png"
-import CartWidget from '../cartwidget/CartWidget'
+import CartWidget from '../CartWidget/CartWidget'
 
 const Nav = () => {
   return (
