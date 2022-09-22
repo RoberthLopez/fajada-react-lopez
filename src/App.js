@@ -1,6 +1,7 @@
 import './App.css';
 import Nav from './components/Nav/Nav';
 import ItemListContainer from './containers/ItemListCointainer/ItemListContainer';
+import ItemDetailContainer from './containers/itemDetailContainer/ItemDetailContainer';
 
 function App() {
 
@@ -10,6 +11,7 @@ function App() {
     <>
     <Nav/>
     <ItemListContainer greeting={mensaje}/>
+    <ItemDetailContainer/>
     </>
 );
 }
