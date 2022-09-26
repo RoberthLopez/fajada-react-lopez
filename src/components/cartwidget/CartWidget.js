@@ -3,7 +3,7 @@ import { ShoppingCartIcon } from '@heroicons/react/24/outline'
 
 const CartWidget = () => {
   return (
-    <ShoppingCartIcon className='h-6 w-6'/>
+    <ShoppingCartIcon className='h-8 w-8'/>
   )
 }
 

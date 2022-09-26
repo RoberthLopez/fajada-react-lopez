@@ -1,51 +1,36 @@
 import React from 'react'
-import { Navbar } from 'flowbite-react'
 import logo from "../../assets/logo-redondo.png"
 import CartWidget from '../CartWidget/CartWidget'
+import { Link } from "react-router-dom";
 
-const Nav = () => {
+const Nav = ({categories}) => {
   return (
-<Navbar
-  fluid={true}
-  rounded={true}
->
-  <Navbar.Brand href="">
-    <img
-      src={logo}
-      className="mr-3 h-6 sm:h-9"
-      alt="Fajada Logo"
-    />
-    <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
-      Fajada
-    </span>
-  </Navbar.Brand>
-  <div className="flex md:order-2">
-    
-    <CartWidget/>
-    
-    <Navbar.Toggle />
-  </div>
-  <Navbar.Collapse>
-    <Navbar.Link
-      href="/navbars"
-      active={true}
-    >
-      Fajas
-    </Navbar.Link>
-    <Navbar.Link href="/navbars">
-      Leggins
-    </Navbar.Link>
-    <Navbar.Link href="/navbars">
-      Tops
-    </Navbar.Link>
-    <Navbar.Link href="/navbars">
-      Buzos
-    </Navbar.Link>
-    <Navbar.Link href="/navbars">
-      Enterizos
-    </Navbar.Link>
-  </Navbar.Collapse>
-</Navbar>
+    <>
+    <header className='flex items-center border-b border-pink-600'>
+      <div className="flex items-center justify-between flex-1 pl-4 pr-12 py-4">
+        <div className='flex '>
+          <Link to="/">
+            <img src={logo} alt="Fajada logo" className='h-6 sm:h-9'/>
+          </Link>
+          <Link to="/">
+            <span className="self-center whitespace-nowrap text-2xl font-semibold dark:text-white">
+            Fajada
+            </span>
+          </Link>
+        </div>
+        <nav className='flex items-center space-x-10 text-sm uppercase font-medium'>
+            {categories.map((e, i)=>{
+              return <Link key={(e.id) + (i)} to={e.route} className="py-1 hover:border-b hover:border-pink-800">{e.name}</Link>
+            })}
+        </nav>
+        <div>
+          <Link to="/cart">
+            <CartWidget/>
+          </Link>            
+        </div>
+      </div>
+    </header>
+    </>
   )
 }
 

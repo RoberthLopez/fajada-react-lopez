@@ -1,16 +1,28 @@
 import React, { useEffect, useState } from 'react'
-import { promiseProducts } from '../../assets/promises/promiseProducts'
-import { productList } from '../../assets/product-data/products-data'
 import ItemList from '../../components/ItemList/ItemList'
+import { useParams } from 'react-router-dom'
 
 const ItemListContainer = ({greeting}) => {
 
   const [items, setItems] = useState([])
+  let { IdCategoria } = useParams({});
+  
 
   useEffect(() => {
-    promiseProducts(productList)
-      .then(res=> setItems(res))
-  }, [])
+    const getItems= async () => {
+      try {
+        const res = await fetch("https://fajada-react-default-rtdb.firebaseio.com/productos.json")
+        const data = await res.json();
+        IdCategoria === undefined ? setItems(data) : setItems(data.filter(p => p.category === IdCategoria))
+      }
+      catch (err) {
+        console.error(err)
+      }
+    }
+
+    getItems()
+  }, [IdCategoria])
+  
     
   
   return (
