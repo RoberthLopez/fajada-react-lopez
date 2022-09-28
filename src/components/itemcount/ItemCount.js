@@ -1,10 +1,9 @@
 import React, { useState } from 'react'
 import { PlusIcon } from "@heroicons/react/24/outline"
 import { MinusIcon } from "@heroicons/react/24/outline"
-import { Link } from "react-router-dom"
 
 
-const ItemCount = ({stock, initial, onAdd, price, item}) => {
+const ItemCount = ({stock, initial, onAdd}) => {
     const [qty, setQty] = useState(parseInt(initial))
 
 
@@ -33,18 +32,11 @@ const ItemCount = ({stock, initial, onAdd, price, item}) => {
       </button>
         
     </div>
-    <div className="flex items-center justify-between">
-      <span className="text-3xl font-bold text-gray-900 dark:text-white">
-        {price}$
-      </span>
-      <Link to={"/producto/" + item.id }>
         <button
           onClick={addToCart} className="rounded-lg bg-pink-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-pink-800 focus:outline-none focus:ring-4 focus:ring-pink-300 dark:bg-pink-600 dark:hover:bg-pink-700 dark:focus:ring-pink-800"
         >
           Agregar al carrito
         </button>
-        </Link>
-    </div>
     </>
     
   )
