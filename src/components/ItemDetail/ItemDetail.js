@@ -1,23 +1,31 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { StarIcon } from '@heroicons/react/24/solid'
 import { ArrowLeftIcon } from '@heroicons/react/24/solid'
 import ItemCount from '../ItemCount/ItemCount'
 import { Link } from "react-router-dom"
+import CartModal from '../CartModal/CartModal'
+import { CartContext } from '../../context/CartContext'
+
 
 
 const ItemDetail = ({item}) => {
 
     const [count, setCount] = useState("")
 
+    const { cart, addItem } = useContext(CartContext)
+
     const onAdd = (qty) => {
-        console.log(qty)
+        let itemQty = qty
         setCount(qty)
-      }
+        addItem(item, itemQty)              
+    }
+    console.log(cart) 
 
     const stars = [];
     for (let i = 0; i < 5; i++) {
         stars.push(<StarIcon key={i} className='w-5 h-5 text-yellow-300'/>)
     }
+
   return (
     
     <>
@@ -41,8 +49,9 @@ const ItemDetail = ({item}) => {
             <p className='text-xl pt-8 leading-relaxed'>
                 {item.description}
             </p>
+            <CartModal />
             {count === "" ? 
-            <ItemCount stock={6} initial={1} onAdd={onAdd} /> :
+            <ItemCount stock={item.stock} initial={1} onAdd={onAdd} /> :
             <Link to={"/cart"} className="mt-2.5 flex">
                 <button
                 className="rounded-lg w-full items-center bg-pink-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-pink-800 focus:outline-none focus:ring-4 focus:ring-pink-300 dark:bg-pink-600 dark:hover:bg-pink-700 dark:focus:ring-pink-800">

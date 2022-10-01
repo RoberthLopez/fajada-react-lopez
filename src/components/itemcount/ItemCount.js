@@ -32,11 +32,9 @@ const ItemCount = ({stock, initial, onAdd}) => {
       </button>
         
     </div>
-        <button
-          onClick={addToCart} className="rounded-lg bg-pink-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-pink-800 focus:outline-none focus:ring-4 focus:ring-pink-300 dark:bg-pink-600 dark:hover:bg-pink-700 dark:focus:ring-pink-800"
-        >
-          Agregar al carrito
-        </button>
+      <button onClick={addToCart} className="rounded-lg bg-pink-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-pink-800 focus:outline-none focus:ring-4 focus:ring-pink-300 dark:bg-pink-600 dark:hover:bg-pink-700 dark:focus:ring-pink-800">
+        Agregar al carrito
+      </button>
     </>
     
   )
