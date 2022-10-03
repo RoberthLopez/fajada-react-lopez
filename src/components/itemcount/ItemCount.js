@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import { PlusIcon } from "@heroicons/react/24/outline"
-import { MinusIcon } from "@heroicons/react/24/outline"
+import { PlusIcon, MinusIcon } from "@heroicons/react/24/outline"
+
 
 
 const ItemCount = ({stock, initial, onAdd}) => {

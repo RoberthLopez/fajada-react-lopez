@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { Modal, Button } from 'flowbite-react'
+import { Modal } from 'flowbite-react'
 import { ExclamationCircleIcon } from '@heroicons/react/24/outline'
 
 import { CartContext } from '../../context/CartContext'
