@@ -7,6 +7,7 @@ const CartProvider = ({children}) => {
   const [cart, setCart] = useState([]);
   const [show, setShow] = useState(false);
   const [cartCount, setCartCount] = useState(0)
+  const [billTotal, setBillTotal] = useState(0)
 
   useEffect(() => {
     const getCartTotal = () => {
@@ -15,6 +16,7 @@ const CartProvider = ({children}) => {
   
       setCartCount(cartTotal) 
     }
+    setBillTotal(cart.map((e)=>e.item.price*e.itemQty).reduce((prev, act)=> prev + act, 0))
 
     getCartTotal();
   }, [cart])
@@ -34,12 +36,10 @@ const CartProvider = ({children}) => {
       }
       else {
       setCart([...newCart, { item, itemQty }])
-      console.log(isInCart)}
-    }
-    else {
+      }}
+      else {
       setCart([...cart, { item, itemQty }])
-      console.log(isInCart)
-    }
+      }
   }
 
   const removeItem = (item) => {
@@ -54,7 +54,7 @@ const CartProvider = ({children}) => {
   }
 
   return (
-    <CartContext.Provider value={{cart, addItem, removeItem, reset, show, closeModal, cartCount}}>{children}</CartContext.Provider>
+    <CartContext.Provider value={{cart, addItem, removeItem, reset, show, closeModal, cartCount, billTotal}}>{children}</CartContext.Provider>
   )
 }
 

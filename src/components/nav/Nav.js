@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const Nav = ({categories}) => {
   return (
     <>
-    <header className='flex items-center border-b border-pink-600'>
+    <header className='flex w-full bg-white fixed z-50 items-center border-b border-pink-600'>
       <div className="flex items-center justify-between flex-1 pl-4 pr-12 py-4">
         <div className='flex '>
           <Link to="/">

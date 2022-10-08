@@ -5,14 +5,13 @@ import { TrashIcon } from '@heroicons/react/24/outline'
 import { Link } from 'react-router-dom'
 
 const Cart = () => {
-  const {cart, removeItem} = useContext(CartContext)
+  const {cart, removeItem, billTotal} = useContext(CartContext)
   
-  let total = cart.map((e)=>e.item.price*e.itemQty).reduce((prev, act)=> prev + act, 0)
 
   return (
     <>
     {cart.length === 0 ?
-    <div className='flex flex-col gap-10 justify-center items-center text-center h-100 m-20'>
+    <div className='flex pt-28 flex-col gap-10 justify-center items-center text-center h-100'>
       <div className='text-xl font-bold'>No tienes ningun item agregado al carrito</div>
       <Link to="/">
         <button className="rounded-lg bg-pink-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-pink-800 focus:outline-none focus:ring-4 focus:ring-pink-300 dark:bg-pink-600 dark:hover:bg-pink-700 dark:focus:ring-pink-800">
@@ -20,8 +19,9 @@ const Cart = () => {
         </button>
       </Link>
     </div> :
-    <>
-      <Table striped={true}>
+
+    <div className='pt-20'>
+      <Table className='pt-28' striped={true}>
         <Table.Head>
           <Table.HeadCell>
             Nombre de producto
@@ -59,7 +59,7 @@ const Cart = () => {
               ${e.item.price*e.itemQty}
             </Table.Cell>
             <Table.Cell>
-              <span
+              <span className='hover:cursor-pointer'
                 onClick={() => removeItem(e.item)}
               >
                 <TrashIcon className='w-4 h-4'/>
@@ -75,11 +75,10 @@ const Cart = () => {
           Total a pagar
         </div>
         <div className=''>
-          ${total}
+          ${billTotal}
         </div>
       </div>
-    </>
-
+    </div>
   }
   </>
 

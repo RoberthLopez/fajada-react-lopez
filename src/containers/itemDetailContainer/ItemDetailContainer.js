@@ -1,6 +1,8 @@
 import React, {useState, useEffect} from 'react'
 import ItemDetail from '../../components/ItemDetail/ItemDetail'
 import { useParams } from 'react-router-dom'
+import { doc, getDoc, collection } from 'firebase/firestore';
+import { db } from '../../firebase/firebase';
 
 const ItemDetailContainer = () => {
 
@@ -8,18 +10,17 @@ const ItemDetailContainer = () => {
     let { IdProducto } = useParams({});
 
     useEffect(() => {
-        
-    const getItem  = async () => {
-        try {
-            const res = await fetch('https://fajada-react-default-rtdb.firebaseio.com/productos.json');
-            const data = await res.json();
-            setItem(data[IdProducto])
-        }
-        catch (err) {
-            console.error(err)
-        }
-    }
-    getItem()
+
+      const productCol = collection(db, 'productos')
+      const refDoc = doc(productCol, IdProducto)
+      getDoc(refDoc)
+      .then((data) => {
+        console.log(data)
+        setItem({
+          id: data.id,
+          ...data.data()
+        })
+      })
     }, [IdProducto])
     
 
