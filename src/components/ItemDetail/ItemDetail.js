@@ -12,14 +12,13 @@ const ItemDetail = ({item}) => {
 
     const [count, setCount] = useState("")
 
-    const { cart, addItem } = useContext(CartContext)
+    const { addItem } = useContext(CartContext)
 
     const onAdd = (qty) => {
         let itemQty = qty
         setCount(qty)
         addItem(item, itemQty)              
     }
-    console.log(cart) 
 
     const stars = [];
     for (let i = 0; i < 5; i++) {

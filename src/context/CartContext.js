@@ -31,13 +31,17 @@ const CartProvider = ({children}) => {
     if (isInCart !== -1) {
       let newCart = cart.filter((e)=> e !== cart[isInCart])
       itemQty = cart[isInCart].itemQty + itemQty
+
       if (itemQty > item.stock) {
         setShow(true)
       }
+
       else {
-      setCart([...newCart, { item, itemQty }])
-      }}
-      else {
+        setCart([...newCart, { item, itemQty }])
+      }
+    }
+
+    else {
       setCart([...cart, { item, itemQty }])
       }
   }
@@ -46,8 +50,6 @@ const CartProvider = ({children}) => {
     let newCart = cart.filter((e)=> e.item !== item)
     setCart([...newCart])
   }
-
-
 
   const reset = () => {
     setCart([])

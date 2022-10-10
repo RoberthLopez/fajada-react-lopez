@@ -5,7 +5,7 @@ import { TrashIcon } from '@heroicons/react/24/outline'
 import { Link } from 'react-router-dom'
 
 const Cart = () => {
-  const {cart, removeItem, billTotal} = useContext(CartContext)
+  const {cart, removeItem, billTotal, reset} = useContext(CartContext)
   
 
   return (
@@ -70,12 +70,24 @@ const Cart = () => {
           }
         </Table.Body>
       </Table>
-      <div className='flex justify-end gap-20  m-20 content-center'>
-        <div className='text-xl font-bold'>
-          Total a pagar
+      <div className='flex flex-col text-center justify-center md:flex-row md:justify-between gap-10 m-20 content-center'>
+        <div className='flex flex-col md:flex-row gap-5 text-pink-800'>
+          <div className='text-xl font-bold'>
+            Total a pagar:
+          </div>
+          <div className='text-lg font-semibold'>
+            ${billTotal}
+          </div>
         </div>
-        <div className=''>
-          ${billTotal}
+        <div className='flex justify-center gap-1'>
+            <button onClick={reset} className='rounded-lg bg-pink-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-pink-800 focus:outline-none focus:ring-4 focus:ring-pink-300 dark:bg-pink-600 dark:hover:bg-pink-700 dark:focus:ring-pink-800'>
+              Limpiar Carrito
+            </button>
+          <Link to="checkout">
+            <button className='rounded-lg bg-pink-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-pink-800 focus:outline-none focus:ring-4 focus:ring-pink-300 dark:bg-pink-600 dark:hover:bg-pink-700 dark:focus:ring-pink-800'>
+              Ir al Checkout
+            </button>
+          </Link>
         </div>
       </div>
     </div>
