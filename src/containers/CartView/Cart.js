@@ -1,11 +1,11 @@
-import React, {useContext} from 'react'
-import { Table } from 'flowbite-react'
-import { CartContext } from '../../context/CartContext'
-import { TrashIcon } from '@heroicons/react/24/outline'
-import { Link } from 'react-router-dom'
+import React, {useContext} from 'react';
+import { Table } from 'flowbite-react';
+import { CartContext } from '../../context/CartContext';
+import { TrashIcon } from '@heroicons/react/24/outline';
+import { Link } from 'react-router-dom';
 
 const Cart = () => {
-  const {cart, removeItem, billTotal, reset} = useContext(CartContext)
+  const {cart, removeItem, billTotal, reset} = useContext(CartContext);
   
 
   return (
@@ -94,7 +94,7 @@ const Cart = () => {
   }
   </>
 
-  )
-}
+  );
+};
 
-export default Cart
+export default Cart;

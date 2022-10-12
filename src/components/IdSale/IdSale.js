@@ -1,5 +1,5 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 const IdSale = ( {buyerId, setOpenModal}) => {
   return (
@@ -11,7 +11,7 @@ const IdSale = ( {buyerId, setOpenModal}) => {
             <button onClick={()=>setOpenModal(false)} className="rounded-lg mt-2 bg-pink-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-pink-800 focus:outline-none focus:ring-4 focus:ring-pink-300 dark:bg-pink-600 dark:hover:bg-pink-700 dark:focus:ring-pink-800">Aceptar</button>
         </Link>
     </div>
-  )
-}
+  );
+};
 
-export default IdSale
+export default IdSale;

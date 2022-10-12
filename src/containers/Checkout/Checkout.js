@@ -7,9 +7,9 @@ import IdSale from '../../components/IdSale/IdSale';
 import UserIdModal from '../../components/UserIdModal/UserIdModal';
 
 const Checkout = () => {
-    const { cart, billTotal, reset } = useContext(CartContext)
-    const [openModal, setOpenModal] = useState(false)
-    const [buyerId, setBuyerId] = useState("")
+    const { cart, billTotal, reset } = useContext(CartContext);
+    const [openModal, setOpenModal] = useState(false);
+    const [buyerId, setBuyerId] = useState("");
 
     const handleSell = (values) => {
         const salesCol = collection(db, 'sales');
@@ -20,13 +20,13 @@ const Checkout = () => {
             total: billTotal
          })
          .then(result=>{
-            setBuyerId(result.id) 
+            setBuyerId(result.id);
             cart.map((e)=>{
-                const updateStock = doc(db, 'productos', e.item.id)
-                return updateDoc(updateStock, {stock: e.item.stock - e.itemQty})                
+                const updateStock = doc(db, 'productos', e.item.id);
+                return updateDoc(updateStock, {stock: e.item.stock - e.itemQty});               
             })
-            reset()
-            setOpenModal(true)
+            reset();
+            setOpenModal(true);
         })
     }
         
@@ -39,7 +39,7 @@ const Checkout = () => {
         <IdSale buyerId={buyerId} setOpenModal={setOpenModal} />
     </UserIdModal>)}
     </>
-  )
-}
+  );
+};
 
-export default Checkout
+export default Checkout;

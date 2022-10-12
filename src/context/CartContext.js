@@ -1,33 +1,33 @@
-import React, { createContext, useState, useEffect } from 'react'
+import React, { createContext, useState, useEffect } from 'react';
 
-export const CartContext = createContext([])
+export const CartContext = createContext([]);
 
 const CartProvider = ({children}) => {
   
   const [cart, setCart] = useState([]);
   const [show, setShow] = useState(false);
-  const [cartCount, setCartCount] = useState(0)
-  const [billTotal, setBillTotal] = useState(0)
+  const [cartCount, setCartCount] = useState(0);
+  const [billTotal, setBillTotal] = useState(0);
 
   useEffect(() => {
     const getCartTotal = () => {
-      let cartTotal = 0
-      cart.map((e) => cartTotal += e.itemQty)
+      let cartTotal = 0;
+      cart.map((e) => cartTotal += e.itemQty);
   
-      setCartCount(cartTotal) 
+      setCartCount(cartTotal);
     }
-    setBillTotal(cart.map((e)=>e.item.price*e.itemQty).reduce((prev, act)=> prev + act, 0))
+    setBillTotal(cart.map((e)=>e.item.price*e.itemQty).reduce((prev, act)=> prev + act, 0));
 
     getCartTotal();
-  }, [cart])
+  }, [cart]);
   
 
   const closeModal = () => {
-    setShow(false)
-  }
+    setShow(false);
+  };
 
   const addItem = (item, itemQty) => {
-    let isInCart = cart.findIndex((e) => e.item.id === item.id )
+    let isInCart = cart.findIndex((e) => e.item.id === item.id );
     if (isInCart !== -1) {
       let newCart = cart.filter((e)=> e !== cart[isInCart])
       itemQty = cart[isInCart].itemQty + itemQty

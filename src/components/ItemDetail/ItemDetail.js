@@ -1,41 +1,40 @@
-import React, { useContext, useState } from 'react'
-import { StarIcon } from '@heroicons/react/24/solid'
-import { ArrowLeftIcon } from '@heroicons/react/24/solid'
-import ItemCount from '../ItemCount/ItemCount'
-import { Link } from "react-router-dom"
-import CartModal from '../CartModal/CartModal'
-import { CartContext } from '../../context/CartContext'
+import React, { useContext, useState } from 'react';
+import { StarIcon } from '@heroicons/react/24/solid';
+import { ArrowLeftIcon } from '@heroicons/react/24/solid';
+import ItemCount from '../ItemCount/ItemCount';
+import { Link } from "react-router-dom";
+import CartModal from '../CartModal/CartModal';
+import { CartContext } from '../../context/CartContext';
 
 
 
 const ItemDetail = ({item}) => {
 
-    const [count, setCount] = useState("")
+    const [count, setCount] = useState("");
 
-    const { addItem } = useContext(CartContext)
+    const { addItem } = useContext(CartContext);
 
     const onAdd = (qty) => {
-        let itemQty = qty
-        setCount(qty)
-        addItem(item, itemQty)              
-    }
+        let itemQty = qty;
+        setCount(qty);
+        addItem(item, itemQty);             
+    };
 
     const stars = [];
     for (let i = 0; i < 5; i++) {
-        stars.push(<StarIcon key={i} className='w-5 h-5 text-yellow-300'/>)
+        stars.push(<StarIcon key={i} className='w-5 h-5 text-yellow-300'/>);
     }
 
   return (
     
     <>
-    <div className='flex pt-10 pb-12 pl-20'>
-        <ArrowLeftIcon className='w-8 h-5'/>
-        <div className='flex flex-col w-1/2'>
-            <div className='pt-10'>
-                <h1 className='text-4xl font-bold tracking-wide'>{item.title}</h1>
+    <div className='flex flex-col md:flex-row py-[100px] px-4 md:mt-15'>
+        <div className='flex flex-col md:w-1/2'>
+            <div className=''>
+                <h1 className=' text-2xl md:text-3xl font-bold tracking-wide'>{item.title}</h1>
             </div>
             <div className='flex items-center justify-between pt-4'>
-                <span className='text-3xl'>{item.price}</span>
+                <span className='text-xl md:text-3xl'>{item.price}</span>
                 <div className='flex items-center'>
                     <div className='flex space-x-px'>
                         {stars}
@@ -59,7 +58,7 @@ const ItemDetail = ({item}) => {
             </Link>}
             
         </div>
-        <div className='flex flex-col items-center w-1/2'>
+        <div className='flex flex-col items-center mt-4 md:w-1/2'>
             <div className='max-w-md'>
                 <div>
                     <img src={item.pictureUrl} alt='Imagen Producto' className='object-contain w-[440px] h-auto'/>
@@ -72,7 +71,7 @@ const ItemDetail = ({item}) => {
 
     
     </>
-  )
-}
+  );
+};
 
 export default ItemDetail

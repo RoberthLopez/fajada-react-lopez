@@ -1,10 +1,10 @@
-import React, { useState } from 'react'
-import { PlusIcon, MinusIcon } from "@heroicons/react/24/outline"
+import React, { useState } from 'react';
+import { PlusIcon, MinusIcon } from "@heroicons/react/24/outline";
 
 
 
 const ItemCount = ({stock, initial, onAdd}) => {
-    const [qty, setQty] = useState(parseInt(initial))
+    const [qty, setQty] = useState(parseInt(initial));
 
 
     const clickHndlrAddition = () => qty < stock && setQty(qty + 1);
@@ -12,7 +12,7 @@ const ItemCount = ({stock, initial, onAdd}) => {
     const clickHndlrSubstraction = () => qty > initial && setQty(qty - 1);
 
     const addToCart = () => {
-      stock > 0 ? onAdd(qty) : console.log("No hay stock")
+      stock > 0 ? onAdd(qty) : console.log("No hay stock");
     }
     
 
@@ -37,7 +37,7 @@ const ItemCount = ({stock, initial, onAdd}) => {
       </button>
     </>
     
-  )
-}
+  );
+};
 
 export default ItemCount

@@ -1,5 +1,5 @@
-import React from 'react'
-import { Link } from "react-router-dom"
+import React from 'react';
+import { Link } from "react-router-dom";
 
 const Item = ({item}) => {
   return (
@@ -22,8 +22,7 @@ const Item = ({item}) => {
     </div>
   </div>
 </div>
+  );
+};
 
-  )
-}
-
-export default Item
+export default Item;

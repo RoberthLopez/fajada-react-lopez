@@ -1,6 +1,6 @@
-import React,{useContext} from 'react'
-import { ShoppingCartIcon } from '@heroicons/react/24/outline'
-import { CartContext } from '../../context/CartContext'
+import React,{useContext} from 'react';
+import { ShoppingCartIcon } from '@heroicons/react/24/outline';
+import { CartContext } from '../../context/CartContext';
 
 const CartWidget = () => {
 
@@ -9,7 +9,7 @@ const CartWidget = () => {
     <>{
         cartCount === 0 ?
       <div>
-        <ShoppingCartIcon className='h-10 w-10'/>
+        <ShoppingCartIcon className='h-8 w-8'/>
       </div> :
       <div className='relative'>
         
@@ -20,7 +20,7 @@ const CartWidget = () => {
       </div>
     }
     </>
-  )
-}
+  );
+};
 
-export default CartWidget
+export default CartWidget;

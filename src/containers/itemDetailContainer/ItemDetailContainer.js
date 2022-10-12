@@ -1,6 +1,6 @@
-import React, {useState, useEffect} from 'react'
-import ItemDetail from '../../components/ItemDetail/ItemDetail'
-import { useParams } from 'react-router-dom'
+import React, {useState, useEffect} from 'react';
+import ItemDetail from '../../components/ItemDetail/ItemDetail';
+import { useParams } from 'react-router-dom';
 import { doc, getDoc, collection } from 'firebase/firestore';
 import { db } from '../../firebase/firebase';
 
@@ -11,16 +11,16 @@ const ItemDetailContainer = () => {
 
     useEffect(() => {
 
-      const productCol = collection(db, 'productos')
-      const refDoc = doc(productCol, IdProducto)
+      const productCol = collection(db, 'productos');
+      const refDoc = doc(productCol, IdProducto);
       getDoc(refDoc)
       .then((data) => {
         setItem({
           id: data.id,
           ...data.data()
-        })
-      })
-    }, [IdProducto])
+        });
+      });
+    }, [IdProducto]);
     
 
 
@@ -31,4 +31,4 @@ const ItemDetailContainer = () => {
   )
 }
 
-export default ItemDetailContainer
+export default ItemDetailContainer;

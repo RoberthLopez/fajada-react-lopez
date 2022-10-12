@@ -1,31 +1,31 @@
-import React, { useEffect, useState } from 'react'
-import ItemList from '../../components/ItemList/ItemList'
-import { useParams } from 'react-router-dom'
-import { db } from '../../firebase/firebase'
-import { getDocs, collection, query, where } from 'firebase/firestore'
+import React, { useEffect, useState } from 'react';
+import ItemList from '../../components/ItemList/ItemList';
+import { useParams } from 'react-router-dom';
+import { db } from '../../firebase/firebase';
+import { getDocs, collection, query, where } from 'firebase/firestore';
 
 const ItemListContainer = ({greeting}) => {
 
-  const [items, setItems] = useState([])
-  const [error, setError] = useState(false)
+  const [items, setItems] = useState([]);
+  const [error, setError] = useState(false);
   let { IdCategoria } = useParams({});
   
 
   useEffect(() => {
     const categoria = IdCategoria || ""
     const productsCol = collection(db, 'productos');
-    const q = query(productsCol, where('category', '==', categoria))
+    const q = query(productsCol, where('category', '==', categoria));
     getDocs(IdCategoria === undefined ? productsCol : q)
     .then((info)=>{
       const list = info.docs.map((product)=> {
         return {...product.data(), id: product.id}})
-      setItems(list)
+      setItems(list);
     })
     .catch(()=> {
-      setError(true)
-    })
+      setError(true);
+    });
 
-  }, [IdCategoria])
+  }, [IdCategoria]);
   
     
   
@@ -33,7 +33,7 @@ const ItemListContainer = ({greeting}) => {
     <>
       {error ? 
       (<div>Ocurrio un error</div>) :
-      (<><div className='pt-20 flex place-content-center'>{greeting}</div>
+      (<><div className='pt-[100px] text-3xl text-center text-pink-600 font-extrabold flex place-content-center'>{greeting}</div>
       <ItemList items={items} /> </>)}
       
     </>
@@ -41,4 +41,4 @@ const ItemListContainer = ({greeting}) => {
   )
 }
 
-export default ItemListContainer
+export default ItemListContainer;

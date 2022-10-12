@@ -1,8 +1,7 @@
-import React, { useContext } from 'react'
-import { Modal } from 'flowbite-react'
-import { ExclamationCircleIcon } from '@heroicons/react/24/outline'
-
-import { CartContext } from '../../context/CartContext'
+import React, { useContext } from 'react';
+import { Modal } from 'flowbite-react';
+import { ExclamationCircleIcon } from '@heroicons/react/24/outline';
+import { CartContext } from '../../context/CartContext';
 
 const CartModal = () => {
 
@@ -34,7 +33,7 @@ const CartModal = () => {
             </Modal.Body>
         </Modal>
     </React.Fragment>
-  )
-}
+  );
+};
 
-export default CartModal
+export default CartModal;

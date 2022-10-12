@@ -27,7 +27,7 @@ const CheckoutForm = ({handleSell}) => {
         }}
      >
 
-                <Form className='flex flex-col w-80 gap-1 lg:w-[500px] mt-5'>
+                <Form className='flex flex-col w-80 gap-1 lg:w-[500px] mt-5 p-5'>
                     <label htmlFor="firstName" className='text-pink-600 font-bold'>Nombre</label>
                     <Field name="firstName" type="text" className="rounded-lg text-pink-500 border-pink-300 bg-pink-100/75 focus:outline-none focus:ring focus:ring-pink-300 focus:border-none"/>
                     <div className='text-rose-600'>
@@ -87,7 +87,7 @@ const CheckoutForm = ({handleSell}) => {
                     </div>
             
                     <button type="submit" className="rounded-lg mt-2 bg-pink-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-pink-800 focus:outline-none focus:ring-4 focus:ring-pink-300 dark:bg-pink-600 dark:hover:bg-pink-700 dark:focus:ring-pink-800">
-                       submit
+                       Comprar
                     </button>
                   </Form>
 
@@ -95,4 +95,4 @@ const CheckoutForm = ({handleSell}) => {
   );
 };
 
-export default CheckoutForm
+export default CheckoutForm;
