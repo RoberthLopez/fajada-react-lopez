@@ -8,7 +8,9 @@ const IdSale = ( {buyerId, setOpenModal}) => {
         <p className='text-black text-center'>Tu compra ha finalizado exitosamente</p>
         <p className='text-black text-center'>El id de tu compra es <span className='font-bold'>{buyerId}</span></p>
         <Link to="/">
-            <button onClick={()=>setOpenModal(false)} className="rounded-lg mt-2 bg-pink-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-pink-800 focus:outline-none focus:ring-4 focus:ring-pink-300 dark:bg-pink-600 dark:hover:bg-pink-700 dark:focus:ring-pink-800">Aceptar</button>
+            <button onClick={()=>setOpenModal(false)} className="rounded-lg mt-2 bg-pink-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-pink-800 focus:outline-none focus:ring-4 focus:ring-pink-300 dark:bg-pink-600 dark:hover:bg-pink-700 dark:focus:ring-pink-800">
+              Aceptar
+            </button>
         </Link>
     </div>
   );

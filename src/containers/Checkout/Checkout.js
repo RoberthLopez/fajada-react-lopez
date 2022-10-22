@@ -24,11 +24,11 @@ const Checkout = () => {
             cart.map((e)=>{
                 const updateStock = doc(db, 'productos', e.item.id);
                 return updateDoc(updateStock, {stock: e.item.stock - e.itemQty});               
-            })
+            });
             reset();
             setOpenModal(true);
-        })
-    }
+        });
+    };
         
   return (
     <>

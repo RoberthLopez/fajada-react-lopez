@@ -30,7 +30,7 @@ const ItemDetail = ({item}) => {
     <>
     <div className='flex flex-col md:flex-row py-[100px] px-4 md:mt-15'>
         <div className='flex flex-col md:w-1/2'>
-            <div className=''>
+            <div>
                 <h1 className=' text-2xl md:text-3xl font-bold tracking-wide'>{item.title}</h1>
             </div>
             <div className='flex items-center justify-between pt-4'>

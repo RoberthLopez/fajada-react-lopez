@@ -1,15 +1,25 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
+import { UserContext } from '../../context/UserContext';
 
 
 
 const CheckoutForm = ({handleSell}) => {
 
+    const {user} = useContext(UserContext);
+    const getEmail = () => {
+        if (user) {
+            return user.email
+        }
+        else {
+            return ''
+        };
+    };
 
   return (
     <Formik
-       initialValues={{ firstName: '', lastName: '', email: '', country:'', city:'', address:'', phone:'', note:''}}
+       initialValues={{ firstName: '', lastName: '', email: getEmail(), country:'', city:'', address:'', phone:'', note:''}}
        
        validationSchema={Yup.object({
         firstName: Yup.string().max(15, 'Escribir 15 caracteres o menos').required('Requerido'),
@@ -41,7 +51,7 @@ const CheckoutForm = ({handleSell}) => {
                     </div>
             
                     <label htmlFor="email" className='text-pink-600 font-bold'>Correo</label>
-                    <Field name="email" type="email" className="rounded-lg text-pink-500 border-pink-300 bg-pink-100/75 focus:outline-none focus:ring focus:ring-pink-300 focus:border-none"/>
+                    <Field disabled={user ? true : false} name="email" type="email" className="rounded-lg text-pink-500 border-pink-300 bg-pink-100/75 focus:outline-none focus:ring focus:ring-pink-300 focus:border-none"/>
                     <div className='text-rose-600'>
                         <ErrorMessage name="email" />
                     </div>
@@ -87,7 +97,7 @@ const CheckoutForm = ({handleSell}) => {
                     </div>
             
                     <button type="submit" className="rounded-lg mt-2 bg-pink-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-pink-800 focus:outline-none focus:ring-4 focus:ring-pink-300 dark:bg-pink-600 dark:hover:bg-pink-700 dark:focus:ring-pink-800">
-                       Comprar
+                       {user ? `Comprar como ${user.email}`: "Comprar"}
                     </button>
                   </Form>
 

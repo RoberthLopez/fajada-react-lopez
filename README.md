@@ -6,11 +6,11 @@ Este es un proyecto de ecommerce inspirado en un proyecto real de venta de fajas
 
 En el proyecto puedes encontrar implementadas las siguientes librerias y frameworks:
 
-### `Tailwind`
+### `tailwind`
 
 Un framework de css que permite aplicar estilos de una forma mas rapida y optimizada.
 
-### `Flowbite`
+### `flowbite`
 
 Una colección de componentes que funciona con tailwind.
 
@@ -18,3 +18,14 @@ Una colección de componentes que funciona con tailwind.
 
 Una libreria para la navegacion entre los componentes de react.
 
+### `react-loading`
+
+Una libreria muy útil para implementar loaders.
+
+### `formik`
+
+Una libreria utilizada para hacer forms de manera sencilla.
+
+### `yup`
+
+Una libreria que complementa `formik` que es utilizada para las validaciones de los formularios.
