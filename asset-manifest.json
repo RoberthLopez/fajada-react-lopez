@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/fajada-react-lopez/static/css/main.09838f69.css",
+    "main.js": "/fajada-react-lopez/static/js/main.921e6fca.js",
+    "static/media/logo-redondo.png": "/fajada-react-lopez/static/media/logo-redondo.0b07df3815154be0e36e.png",
+    "index.html": "/fajada-react-lopez/index.html",
+    "main.09838f69.css.map": "/fajada-react-lopez/static/css/main.09838f69.css.map",
+    "main.921e6fca.js.map": "/fajada-react-lopez/static/js/main.921e6fca.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.09838f69.css",
+    "static/js/main.921e6fca.js"
+  ]
+}
