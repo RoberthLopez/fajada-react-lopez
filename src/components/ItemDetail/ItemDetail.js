@@ -1,6 +1,5 @@
 import React, { useContext, useState } from 'react';
 import { StarIcon } from '@heroicons/react/24/solid';
-import { ArrowLeftIcon } from '@heroicons/react/24/solid';
 import ItemCount from '../ItemCount/ItemCount';
 import { Link } from "react-router-dom";
 import CartModal from '../CartModal/CartModal';
