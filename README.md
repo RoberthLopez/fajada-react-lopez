@@ -1,3 +1,28 @@
+#This is an e-commerce project inspired by a real project for selling waistbands online.
+
+##Libraries and frameworks
+In the project you can find the following libraries and frameworks implemented:
+
+`tailwind`
+A CSS framework that allows for faster and more optimized styling.
+
+`flowbite`
+A collection of components that works with tailwind.
+
+`react-router-dom`
+A library for navigation between React components.
+
+`react-loading`
+A very useful library for implementing loaders.
+
+`formik`
+A library used for making forms in a simple way.
+
+`yup`
+A library that complements formik and is used for form validations.
+
+
+
 # Proyecto Fajada con React
 
 Este es un proyecto de ecommerce inspirado en un proyecto real de venta de fajas online.
